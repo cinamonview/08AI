@@ -46,9 +46,9 @@ def to_csv(name, maxdata):
     lbl_f.close()
     img_f.close()
 
-# to_csv("train", 1000) # 학습데이터 1000개 변환 
-# to_csv("t10k", 500) # 테스트데이터 500개 변환 
+to_csv("train", 1000) # 학습데이터 1000개 변환 
+to_csv("t10k", 500) # 테스트데이터 500개 변환 
 
-to_csv("train", 70000)
-to_csv("t10k", 20000)
+# to_csv("train", 70000)
+# to_csv("t10k", 20000)
 

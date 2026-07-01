@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {# 전송방식은 post, 폼값은 현재 페이지로 전송된다. #}
+    <form method="post">
+        <textarea name="text" rows="8"
+                  cols="40">{{ text }}</textarea>
+        <p><input type="submit" value="판정"></p>
+        <p>{{ msg }}</p>
+    </form>
+</body>
+</html>
+
+

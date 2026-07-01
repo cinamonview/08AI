@@ -1,6 +1,3 @@
-
-
-
 from sklearn import svm 
 import joblib
 import json
@@ -18,4 +15,5 @@ clf.fit(data["freqs"], data["labels"])
 # 학습 데이터 저장하기
 joblib.dump(clf, "lang/freq.pkl")
 print("ok")
+
 

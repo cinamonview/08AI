@@ -1,4 +1,3 @@
-
 import numpy as np
 
 # 정수형 2차원 배열 생성
@@ -56,60 +55,3 @@ print('결과9\n', R9)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-
-
-import numpy as np
-
-
-aArray = np.array([[1,2,3],[4,5,6]])
-print(aArray)
-
-bArray = np.ones((2,3))
-print(bArray)
-
-R1 = np.r_[aArray,bArray]
-print('결과1\n',R1)
-
-R2 = np.c_[aArray,bArray]
-print('결과2\n', R2)
-
-######################################################################################################
-
-R3 = aArray + bArray
-print('결과3\n', R3)
-
-R4 = aArray-bArray
-print('결과4\n', R4)
-
-R5 = aArray*bArray
-print('결과5\n', R5)
-
-R6 = aArray/bArray
-print('결과6\n', R6)
-
-R7 = aArray+2
-print('결과7\n', R7)
-
-R8 = aArray*2
-print('결과8\n', R8)
-
-C= np.array([[1,2,3,]])
-print('aArray의 형태 : ',aArray.shape)  #2행 3열
-print('C의 형태',C.shape) # 1행 3열
-
-R9 = aArray + C
-print('결과9\n', R9)
-'''
