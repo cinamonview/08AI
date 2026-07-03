@@ -1,2 +1,40 @@
 # 머신러닝 학습용 대용량 데이터 파일 제외
 02MachineLearn/*.csv
+
+# 가상환경 폴더 제외 (보내주신 로그의 myvenv)
+myvenv/
+.venv/
+venv/
+
+# 딥러닝 데이터셋 및 압축 파일 제외
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+
+# 이미지 분류 데이터셋 폴더가 있다면 폴더명 지정 (예: datasets 폴더)
+**/datasets/
+
+# 훈련된 딥러닝 모델 파일 제외 (Keras, H5 등)
+*.h5
+*.keras
+*.pkl
+*.npy
+*.npz
+
+# 파이썬 캐시 파일 및 체크포인트 제외
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# 운영체제 생성 파일 제외
+.DS_Store
+Thumbs.db
+
+# K Food 이미지 폴더 및 하위 항목 완벽 제외
+**/kfood/
+**/kfood/**
+
+# Caltech101 이미지 폴더 및 하위 항목 완벽 제외
+**/caltech101/
+**/caltech101/**
