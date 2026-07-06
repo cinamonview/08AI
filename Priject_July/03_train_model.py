@@ -10,7 +10,7 @@ from sklearn.preprocessing import MinMaxScaler
 # 🌟 [여기만 수정하세요!] 원하는 자산을 지정하면 코드가 알아서 움직입니다.
 # 삼성전자를 보고 싶을 때  -> 'samsung'
 # 비트코인을 보고 싶을 때 -> 'bitcoin'
-TARGET = 'samsung' 
+TARGET = 'bitcoin' 
 # =================================================================
 
 # 1. 파일 이름 및 출력 문구 자동 설정

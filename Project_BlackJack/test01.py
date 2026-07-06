@@ -61,7 +61,7 @@ x_games, y_probs = zip(*game_history)  # 데이터를 x축(판수), y축(확률)
 
 plt.figure(figsize=(10, 5))
 plt.plot(x_games, y_probs, label='시뮬레이션 확률', color='blue', linewidth=2)
-
+co
 # 6덱 기준 수학적 이론값 수평선 표시 (약 4.75%)
 plt.axhline(y=4.749, color='red', linestyle='--', label='수학적 이론값 (~4.75%)')
 
