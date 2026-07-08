@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-primary text-white">
+        <h2>🚗 Used Car Price Prediction AI</h2>
+    </div>
+
+    <div class="card-body">
+
+        <form>
+
+            <!-- Brand -->
+            <div class="mb-3">
+                <label class="form-label">Brand</label>
+
+                <select class="form-select" id="brand">
+
+                    <option value="">Select Brand</option>
+
+                    {% for brand in brands %}
+                    <option value="{{ brand }}">{{ brand }}</option>
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <!-- Model -->
+            <div class="mb-3">
+
+                <label class="form-label">Model</label>
+
+                <select class="form-select" id="model">
+
+                    <option value="">Select Model</option>
+
+                </select>
+
+            </div>
+
+            <!-- Fuel -->
+            <div class="mb-3">
+
+                <label class="form-label">Fuel Type</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="fuel_type"
+                    readonly>
+
+            </div>
+
+            <!-- Transmission -->
+            <div class="mb-3">
+
+                <label class="form-label">Transmission</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="transmission"
+                    readonly>
+
+            </div>
+
+            <!-- Body Type -->
+            <div class="mb-3">
+
+                <label class="form-label">Body Type</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="body_type"
+                    readonly>
+
+            </div>
+
+            <!-- Engine Displacement -->
+            <div class="mb-3">
+
+                <label class="form-label">Engine Displacement (cc)</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="engine_displacement"
+                    readonly>
+
+            </div>
+
+            <!-- Engine Cylinders -->
+            <div class="mb-3">
+
+                <label class="form-label">Engine Cylinders</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="engine_cylinders"
+                    readonly>
+
+            </div>
+
+            <!-- Engine Type -->
+            <div class="mb-3">
+
+                <label class="form-label">Engine Type</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="engine_type"
+                    readonly>
+
+            </div>
+
+            <!-- Wheel System -->
+            <div class="mb-3">
+
+                <label class="form-label">Wheel System</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="wheel_system"
+                    readonly>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+{% endblock %}
