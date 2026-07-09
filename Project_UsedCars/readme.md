@@ -1,43 +1,55 @@
-AI Used Car Price Prediction System
+# 🚗 AutoPrice AI
 
-기능
+AI-powered used car price prediction web service.
 
-가격 예측
-가격에 영향을 준 요소 분석(SHAP)
-비슷한 차량 추천
-Flask 웹 서비스
+----------------------------------
 
+Tech Stack
 
-used-car-ai/
-│
-├── data/
-│   ├── raw/          # 원본 CSV
-│   ├── processed/    # 전처리된 CSV
-│
-├── notebooks/        # EDA 분석(Jupyter)
-│
-├── src/
-│   ├── preprocessing.py
-│   ├── train.py
-│   ├── predict.py
-│   ├── explain.py
-│
-├── models/
-│   ├── model.pkl
-│   ├── encoder.pkl
-│
-├── web/
-│   ├── app.py
-│   ├── templates/
-│   ├── static/
-│
-├── requirements.txt
-└── README.md
+Python
 
+Flask
 
-## Experiment History
+CatBoost
 
-| Experiment | MAE | RMSE | R² |
-|------------|-----:|------:|------:|
-| Baseline | 3725 | 14040 | 0.6105 |
-| Outlier Removal + EarlyStopping | 2924 | 4181 | 0.9214 |
+SHAP
+
+Bootstrap
+
+JavaScript
+
+----------------------------------
+
+Dataset
+
+used_cars_data.csv
+
+3,000,040 rows
+
+66 features
+
+----------------------------------
+
+Model
+
+CatBoost Regressor
+
+R² : 0.9214
+
+MAE : 2,924
+
+RMSE : 4,181
+
+----------------------------------
+
+Features
+
+✔ Brand → Model Auto Complete
+
+✔ Vehicle Information Auto Fill
+
+✔ AI Price Prediction
+
+✔ SHAP Explanation
+
+----------------------------------

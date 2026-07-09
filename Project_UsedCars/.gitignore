@@ -1,13 +1,28 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
 
+# Virtual Environment
 .venv/
 venv/
+env/
 
+# Jupyter
 .ipynb_checkpoints/
 
-models/*.pkl
+# macOS
+.DS_Store
 
+# CatBoost
+notebooks/catboost_info/
+
+# Large raw data
+data/raw/
+
+# Processed data
 data/processed/
 
-.DS_Store
+# Trained models
+models/*.cbm
+models/*.pkl
+models/*.joblib

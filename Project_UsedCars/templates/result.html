@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-4">
+
+
+    <!-- ========================= -->
+    <!-- PRICE CARD -->
+    <!-- ========================= -->
+
+
+    <div class="card shadow mb-4">
+
+
+        <div class="card-header bg-primary text-white">
+
+            <h2>
+                🚗 AutoPrice AI Result
+            </h2>
+
+        </div>
+
+
+
+        <div class="card-body text-center">
+
+
+            <h5>
+                Estimated Price
+            </h5>
+
+
+            <h1 class="display-4 text-primary">
+
+                $ {{ "{:,.0f}".format(price|float) }}
+
+            </h1>
+
+
+
+            <p class="text-muted">
+
+                AI predicted vehicle market value
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- VEHICLE INFO -->
+    <!-- ========================= -->
+
+
+    <div class="card shadow mb-4">
+
+
+        <div class="card-header">
+
+            🚘 Vehicle Information
+
+        </div>
+
+
+
+        <div class="card-body">
+
+
+            <div class="row">
+
+
+                <div class="col-md-6 mb-3">
+
+                    <b>Brand</b>
+
+                    <p>
+                        {{ brand }}
+                    </p>
+
+                </div>
+
+
+
+                <div class="col-md-6 mb-3">
+
+                    <b>Model</b>
+
+                    <p>
+                        {{ model }}
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="col-md-6 mb-3">
+
+                    <b>Year</b>
+
+                    <p>
+                        {{ year }}
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="col-md-6 mb-3">
+
+                    <b>Mileage</b>
+
+                    <p>
+                        {{ mileage }} miles
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="col-md-6 mb-3">
+
+                    <b>Fuel</b>
+
+                    <p>
+                        {{ fuel }}
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="col-md-6 mb-3">
+
+                    <b>Transmission</b>
+
+                    <p>
+                        {{ transmission }}
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="col-md-6 mb-3">
+
+                    <b>Engine</b>
+
+                    <p>
+                        {{ engine }}
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="col-md-6 mb-3">
+
+                    <b>Wheel System</b>
+
+                    <p>
+                        {{ wheel }}
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- CONFIDENCE -->
+    <!-- ========================= -->
+
+
+    <div class="card shadow mb-4">
+
+
+        <div class="card-header">
+
+            🤖 AI Confidence
+
+        </div>
+
+
+
+        <div class="card-body">
+
+
+            <h3>
+
+                {{ confidence }} %
+
+            </h3>
+
+
+
+            <div class="progress">
+
+
+                <div
+
+                    class="progress-bar"
+
+                    role="progressbar"
+
+                    style="width: {{ confidence }}%"
+
+                >
+
+
+                    {{ confidence }}%
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- SHAP -->
+    <!-- ========================= -->
+
+
+    <div class="card shadow mb-4">
+
+
+        <div class="card-header">
+
+            🧠 AI Explanation (SHAP)
+
+        </div>
+
+
+
+
+
+        <div class="card-body">
+
+
+            {% for item in shap %}
+
+
+            <div class="border rounded p-3 mb-3">
+
+
+                <h5>
+
+                    {{ item.icon }}
+
+                    {{ item.feature }}
+
+                </h5>
+
+
+
+                <p>
+
+                    영향도 :
+
+                    {{ item.impact }}
+
+
+                </p>
+
+
+
+                <span>
+
+                    {{ item.direction }}
+
+                </span>
+
+
+
+            </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- BACK BUTTON -->
+
+
+    <div class="text-center mb-5">
+
+
+        <a
+
+            href="/"
+
+            class="btn btn-primary"
+
+        >
+
+            🔄 Predict Another Car
+
+        </a>
+
+
+    </div>
+
+
+
+</div>
+
+
+{% endblock %}

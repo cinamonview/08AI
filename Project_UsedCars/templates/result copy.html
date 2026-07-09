@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>AutoPrice AI Result</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+
+<link
+href="/static/css/style.css"
+rel="stylesheet">
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container py-5">
+
+
+<div class="card shadow">
+
+
+
+<div class="card-header bg-success text-white text-center">
+
+
+<h2>
+🚗 AutoPrice AI Result
+</h2>
+
+
+<p>
+AI Powered Used Car Price Prediction
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-body">
+
+
+
+<!-- PRICE -->
+
+<div class="text-center mb-4">
+
+
+<h5>
+Estimated Market Price
+</h5>
+
+
+<h1 class="display-4 text-primary fw-bold">
+
+${{price}}
+
+</h1>
+
+
+</div>
+
+
+
+
+
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-6">
+
+        <div class="card border-success shadow-sm">
+
+            <div class="card-body text-center">
+
+                <h5>🎯 Prediction Confidence</h5>
+
+                <h2 class="text-success">
+                    {{ confidence }}%
+                </h2>
+
+                <div class="progress mt-3">
+
+                    <div
+                        class="progress-bar bg-success"
+                        style="width: {{ confidence }}%;">
+
+                        {{ confidence }}%
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="card border-primary shadow-sm">
+
+            <div class="card-body text-center">
+
+                <h5>📊 Total SHAP Impact</h5>
+
+                <h2 class="text-primary">
+
+                    {{ total_impact }}
+
+                </h2>
+
+                <small class="text-muted">
+
+                    Sum of Top 5 SHAP Importance
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr>
+
+<!-- VEHICLE -->
+
+
+
+
+
+<!-- VEHICLE -->
+
+<h4>
+🚘 Vehicle Information
+</h4>
+
+
+
+<div class="row">
+
+
+<div class="col-md-6 mb-3">
+
+<label>
+Brand
+</label>
+
+<input class="form-control"
+value="{{brand}}"
+readonly>
+
+</div>
+
+
+
+<div class="col-md-6 mb-3">
+
+<label>
+Model
+</label>
+
+<input class="form-control"
+value="{{model}}"
+readonly>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="row">
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+Year
+</label>
+
+
+<input class="form-control"
+value="{{year}}"
+readonly>
+
+
+</div>
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+Mileage
+</label>
+
+
+<input class="form-control"
+value="{{mileage}} km"
+readonly>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+<!-- SPEC -->
+
+
+<h4>
+⚙ Vehicle Specification
+</h4>
+
+
+
+
+<div class="row">
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+Fuel
+</label>
+
+
+<input class="form-control"
+value="{{fuel}}"
+readonly>
+
+
+</div>
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+Transmission
+</label>
+
+
+<input class="form-control"
+value="{{transmission}}"
+readonly>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="row">
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+Engine
+</label>
+
+
+<input class="form-control"
+value="{{engine}} cc"
+readonly>
+
+
+</div>
+
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+Wheel System
+</label>
+
+
+<input class="form-control"
+value="{{wheel}}"
+readonly>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+
+<!-- AI COMMENT -->
+
+
+<h4>
+🤖 AI Explanation
+</h4>
+
+
+
+<div id="aiComment"
+class="alert alert-primary">
+
+</div>
+
+
+
+
+
+
+<!-- CONFIDENCE -->
+
+
+<div class="alert alert-success text-center">
+
+
+AI Prediction Confidence
+
+<h3>
+
+{{confidence}} %
+
+</h3>
+
+
+</div>
+
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+<!-- CHART -->
+
+
+<h4>
+📊 SHAP Feature Impact
+</h4>
+
+
+<div class="mt-4">
+
+
+<canvas id="shapChart"></canvas>
+
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+<!-- SHAP CARD -->
+
+
+<h4>
+
+🤖 Detailed SHAP Analysis
+
+</h4>
+
+
+
+<div id="shapArea">
+
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+<div class="alert alert-info text-center">
+
+
+🤖 Predicted by
+
+<strong>
+CatBoost AI Model
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="text-center">
+
+
+<a href="/"
+class="btn btn-primary">
+
+
+🔄 Predict Another Car
+
+
+</a>
+
+
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+const shapData = {{ shap | tojson }};
+
+
+
+const confidence =
+{{ confidence }};
+
+
+
+
+
+// =================================
+// AI 문장
+// =================================
+
+
+const aiComment =
+document.getElementById(
+"aiComment"
+);
+
+
+
+if(shapData.length > 0){
+
+
+
+const top =
+shapData[0];
+
+
+
+let message="";
+
+
+
+if(top.impact >= 0){
+
+
+message =
+
+`
+🤖 AI 분석 결과
+
+<strong>
+${top.feature}
+</strong>
+요소가
+
+차량 가격 상승에 가장 큰 영향을 주었습니다.
+
+<br><br>
+
+긍정 영향도 :
+<strong>
+$${top.impact.toLocaleString()}
+</strong>
+
+`;
+
+
+
+}
+
+else{
+
+
+message =
+
+`
+🤖 AI 분석 결과
+
+<strong>
+${top.feature}
+</strong>
+요소가
+
+차량 가격 하락에 가장 큰 영향을 주었습니다.
+
+<br><br>
+
+부정 영향도 :
+<strong>
+$${Math.abs(top.impact).toLocaleString()}
+</strong>
+
+`;
+
+
+}
+
+
+
+aiComment.innerHTML = message;
+
+
+}
+
+
+
+
+
+
+
+
+// =================================
+// Chart
+// =================================
+
+
+
+const labels = shapData.map(
+
+item => item.feature
+
+);
+
+
+
+const values = shapData.map(
+
+item => item.impact
+
+);
+
+
+
+
+
+new Chart(
+
+
+document.getElementById(
+"shapChart"
+),
+
+
+{
+
+
+type:"bar",
+
+
+
+data:{
+
+
+labels:labels,
+
+
+datasets:[
+
+{
+
+
+label:"가격 영향도 ($)",
+
+
+data:values,
+
+
+backgroundColor:
+
+values.map(
+
+v =>
+
+v >= 0
+
+?
+
+"green"
+
+:
+
+"red"
+
+)
+
+
+}
+
+]
+
+
+},
+
+
+
+
+
+options:{
+
+
+indexAxis:"y",
+
+
+responsive:true,
+
+
+plugins:{
+
+
+legend:{
+
+
+display:false
+
+
+},
+
+
+title:{
+
+
+display:true,
+
+
+text:"SHAP Feature Impact"
+
+
+}
+
+
+}
+
+
+
+}
+
+
+
+}
+
+
+);
+
+
+
+
+
+
+
+
+
+// =================================
+// SHAP CARD
+// =================================
+
+
+
+const shapArea =
+document.getElementById(
+"shapArea"
+);
+
+
+
+
+shapData.forEach(item=>{
+
+
+const div =
+document.createElement(
+"div"
+);
+
+
+
+div.className =
+"card mb-3";
+
+
+
+div.innerHTML =
+
+
+`
+
+<div class="card-body">
+
+
+<h5>
+
+${item.icon ?? ""}
+
+${item.feature}
+
+</h5>
+
+
+<p>
+
+${item.direction}
+
+</p>
+
+
+<strong>
+
+영향도 :
+$${item.impact.toLocaleString()}
+
+</strong>
+
+
+</div>
+
+
+`;
+
+
+
+shapArea.appendChild(div);
+
+
+});
+
+
+
+
+</script>
+
+
+</body>
+
+</html>

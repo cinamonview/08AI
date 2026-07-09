@@ -2,142 +2,227 @@
 
 {% block content %}
 
-<div class="card shadow">
+<div class="card">
 
     <div class="card-header bg-primary text-white">
-        <h2>🚗 Used Car Price Prediction AI</h2>
+
+        <h2 class="mb-1">
+            <i class="bi bi-car-front-fill"></i>
+            AutoPrice AI
+        </h2>
+
+        <small>AI Powered Used Car Price Prediction</small>
+
     </div>
 
     <div class="card-body">
 
-        <form>
+        <form id="predictForm">
 
-            <!-- Brand -->
-            <div class="mb-3">
-                <label class="form-label">Brand</label>
+            <!-- Vehicle Information -->
+            <div class="section-title">
+                🚗 Vehicle Information
+            </div>
 
-                <select class="form-select" id="brand">
+            <div class="row">
 
-                    <option value="">Select Brand</option>
+                <div class="col-md-6 mb-3">
 
-                    {% for brand in brands %}
-                    <option value="{{ brand }}">{{ brand }}</option>
-                    {% endfor %}
+                    <label class="form-label">Brand</label>
 
-                </select>
+                    <select class="form-select" id="brand">
+
+                        <option value="">Select Brand</option>
+
+                        {% for brand in brands %}
+                        <option value="{{ brand }}">
+                            {{ brand }}
+                        </option>
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Model</label>
+
+                    <select class="form-select" id="model">
+
+                        <option value="">
+                            Select Model
+                        </option>
+
+                    </select>
+
+                </div>
 
             </div>
 
-            <!-- Model -->
-            <div class="mb-3">
+            <div class="row">
 
-                <label class="form-label">Model</label>
+                <div class="col-md-6 mb-3">
 
-                <select class="form-select" id="model">
+                    <label class="form-label">Year</label>
 
-                    <option value="">Select Model</option>
+                    <input
+                        type="number"
+                        id="year"
+                        class="form-control">
 
-                </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Mileage</label>
+
+                    <input
+                        type="number"
+                        id="mileage"
+                        class="form-control">
+
+                </div>
 
             </div>
 
-            <!-- Fuel -->
+            <hr>
+
+            <!-- Vehicle Specification -->
+
+            <div class="section-title">
+                ⚙ Vehicle Specification
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Fuel</label>
+
+                    <input
+                        id="fuel"
+                        class="form-control readonly-box"
+                        readonly>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Transmission</label>
+
+                    <input
+                        id="transmission"
+                        class="form-control readonly-box"
+                        readonly>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Engine</label>
+
+                    <input
+                        id="engine"
+                        class="form-control readonly-box"
+                        readonly>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Body Type</label>
+
+                    <input
+                        id="body"
+                        class="form-control readonly-box"
+                        readonly>
+
+                </div>
+
+            </div>
+
             <div class="mb-3">
 
-                <label class="form-label">Fuel Type</label>
+                <label>Wheel Drive</label>
 
                 <input
-                    type="text"
-                    class="form-control"
-                    id="fuel_type"
+                    id="wheel"
+                    class="form-control readonly-box"
                     readonly>
 
             </div>
 
-            <!-- Transmission -->
-            <div class="mb-3">
+            <hr>
 
-                <label class="form-label">Transmission</label>
+            <!-- Vehicle Condition -->
 
-                <input
-                    type="text"
-                    class="form-control"
-                    id="transmission"
-                    readonly>
+            <div class="section-title">
+                🛠 Vehicle Condition
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Accident
+                    </label>
+
+                    <select id="accident" class="form-select">
+
+                        <option value="False">
+                            No
+                        </option>
+
+                        <option value="True">
+                            Yes
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Frame Damage
+                    </label>
+
+                    <select id="frame" class="form-select">
+
+                        <option value="False">
+                            No
+                        </option>
+
+                        <option value="True">
+                            Yes
+                        </option>
+
+                    </select>
+
+                </div>
 
             </div>
 
-            <!-- Body Type -->
-            <div class="mb-3">
+            <br>
 
-                <label class="form-label">Body Type</label>
+            <button
+                type="submit"
+                class="btn btn-primary predict-btn">
 
-                <input
-                    type="text"
-                    class="form-control"
-                    id="body_type"
-                    readonly>
+                🔮 Predict Price
 
-            </div>
-
-            <!-- Engine Displacement -->
-            <div class="mb-3">
-
-                <label class="form-label">Engine Displacement (cc)</label>
-
-                <input
-                    type="text"
-                    class="form-control"
-                    id="engine_displacement"
-                    readonly>
-
-            </div>
-
-            <!-- Engine Cylinders -->
-            <div class="mb-3">
-
-                <label class="form-label">Engine Cylinders</label>
-
-                <input
-                    type="text"
-                    class="form-control"
-                    id="engine_cylinders"
-                    readonly>
-
-            </div>
-
-            <!-- Engine Type -->
-            <div class="mb-3">
-
-                <label class="form-label">Engine Type</label>
-
-                <input
-                    type="text"
-                    class="form-control"
-                    id="engine_type"
-                    readonly>
-
-            </div>
-
-            <!-- Wheel System -->
-            <div class="mb-3">
-
-                <label class="form-label">Wheel System</label>
-
-                <input
-                    type="text"
-                    class="form-control"
-                    id="wheel_system"
-                    readonly>
-
-            </div>
+            </button>
 
         </form>
 
     </div>
 
 </div>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 {% endblock %}

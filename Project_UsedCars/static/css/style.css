@@ -1,0 +1,536 @@
+/* ======================================
+   AutoPrice AI v2.0
+   Custom Style
+====================================== */
+
+
+
+/* ======================================
+   GLOBAL
+====================================== */
+
+
+body {
+
+    background: #f4f7fb;
+
+    font-family:
+
+        "Segoe UI",
+        "Noto Sans KR",
+        sans-serif;
+
+    color: #333;
+
+}
+
+
+
+
+
+.container {
+
+    max-width: 1100px;
+
+}
+
+
+
+
+
+/* ======================================
+   CARD
+====================================== */
+
+
+.card {
+
+    border: none;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+
+        0 8px 25px
+
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+
+
+
+    margin-bottom: 25px;
+
+}
+
+
+
+
+.card-header {
+
+
+    font-weight: 700;
+
+    font-size: 1.2rem;
+
+    padding: 18px 25px;
+
+
+}
+
+
+
+
+.card-body {
+
+
+    padding: 30px;
+
+}
+
+
+
+
+
+
+
+
+/* ======================================
+   TITLE
+====================================== */
+
+
+h1,
+h2,
+h3 {
+
+    font-weight: 700;
+
+}
+
+
+
+
+
+.section-title {
+
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    margin:
+
+        20px 0;
+
+}
+
+
+
+
+
+/* ======================================
+   FORM
+====================================== */
+
+
+.form-label {
+
+
+    font-weight: 600;
+
+}
+
+
+
+
+
+.form-control,
+.form-select {
+
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    border:
+
+        1px solid #ddd;
+
+
+}
+
+
+
+
+
+.form-control:focus,
+.form-select:focus {
+
+
+    box-shadow:
+
+        0 0 0 0.2rem
+
+        rgba(
+            13,
+            110,
+            253,
+            0.15
+        );
+
+
+}
+
+
+
+
+
+.readonly-box {
+
+
+    background:
+
+        #f8f9fa;
+
+
+    cursor:
+
+        default;
+
+}
+
+
+
+
+
+
+
+
+/* ======================================
+   BUTTON
+====================================== */
+
+
+.predict-btn {
+
+
+    width: 100%;
+
+
+    padding:
+
+        15px;
+
+
+    font-size:
+
+        1.2rem;
+
+
+    font-weight:
+
+        700;
+
+
+    border-radius:
+
+        14px;
+
+
+    transition:
+
+        0.3s;
+
+}
+
+
+
+
+.predict-btn:hover {
+
+
+    transform:
+
+        translateY(-3px);
+
+
+    box-shadow:
+
+        0 10px 20px
+
+        rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
+
+
+}
+
+
+
+
+
+
+
+
+/* ======================================
+   RESULT PRICE
+====================================== */
+
+
+.display-4 {
+
+
+    font-weight:
+
+        800;
+
+
+}
+
+
+
+
+
+.text-primary {
+
+
+    font-weight:
+
+        800;
+
+}
+
+
+
+
+
+
+
+
+/* ======================================
+   VEHICLE INFO
+====================================== */
+
+
+.card p {
+
+
+    margin-top:
+
+        8px;
+
+
+    font-size:
+
+        1.05rem;
+
+
+}
+
+
+
+
+
+
+
+
+/* ======================================
+   CONFIDENCE
+====================================== */
+
+
+.progress {
+
+
+    height:
+
+        28px;
+
+
+    border-radius:
+
+        20px;
+
+
+}
+
+
+
+
+
+.progress-bar {
+
+
+    font-weight:
+
+        700;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ======================================
+   SHAP CARD
+====================================== */
+
+
+.border {
+
+
+    border-radius:
+
+        15px !important;
+
+
+}
+
+
+
+
+
+.border h5 {
+
+
+    font-weight:
+
+        700;
+
+
+}
+
+
+
+
+
+.border span {
+
+
+    font-weight:
+
+        600;
+
+
+}
+
+
+
+
+
+
+
+
+/* ======================================
+   ANIMATION
+====================================== */
+
+
+.card {
+
+
+    animation:
+
+        fadeIn
+
+        0.5s
+
+        ease;
+
+}
+
+
+
+
+
+@keyframes fadeIn {
+
+
+    from {
+
+
+        opacity:
+
+            0;
+
+
+        transform:
+
+            translateY(20px);
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            1;
+
+
+        transform:
+
+            translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+/* ======================================
+   MOBILE
+====================================== */
+
+
+@media(max-width:768px){
+
+
+    .card-body {
+
+
+        padding:
+
+            20px;
+
+
+    }
+
+
+
+    h2 {
+
+
+        font-size:
+
+            1.5rem;
+
+
+    }
+
+
+}

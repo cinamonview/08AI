@@ -38,3 +38,11 @@ Thumbs.db
 # Caltech101 이미지 폴더 및 하위 항목 완벽 제외
 **/caltech101/
 **/caltech101/**
+
+# 프로젝트 내 모든 경로(하위 폴더 포함)의 .csv 파일 무시
+**/*.csv
+*.csv
+
+# 프로젝트 내 모든 경로의 CatBoost 모델 파일 무시
+**/*.cbm
+*.cbm
